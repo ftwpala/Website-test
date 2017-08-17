@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CinemaModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="CinemaModelStoreContainer">
+    <EntitySet Name="CartTables" EntityType="CinemaModel.Store.CartTables" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MovieTables" EntityType="CinemaModel.Store.MovieTables" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserTables" EntityType="CinemaModel.Store.UserTables" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="CartTables">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="movie_name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="ticket_price" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MovieTables">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="movie_name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="ticket_price" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserTables">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="user_name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="password" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CinemaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CartTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="movie_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ticket_price" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MovieTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="movie_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ticket_price" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="user_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="CinemaEntities3" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CartTables" EntityType="Self.CartTable" />
+          <EntitySet Name="MovieTables" EntityType="Self.MovieTable" />
+          <EntitySet Name="UserTables" EntityType="Self.UserTable" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CinemaModelStoreContainer" CdmEntityContainer="CinemaEntities3">
+    <EntitySetMapping Name="CartTables">
+      <EntityTypeMapping TypeName="IsTypeOf(CinemaModel.CartTable)">
+        <MappingFragment StoreEntitySet="CartTables">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="movie_name" ColumnName="movie_name" />
+          <ScalarProperty Name="ticket_price" ColumnName="ticket_price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MovieTables">
+      <EntityTypeMapping TypeName="IsTypeOf(CinemaModel.MovieTable)">
+        <MappingFragment StoreEntitySet="MovieTables">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="movie_name" ColumnName="movie_name" />
+          <ScalarProperty Name="ticket_price" ColumnName="ticket_price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserTables">
+      <EntityTypeMapping TypeName="IsTypeOf(CinemaModel.UserTable)">
+        <MappingFragment StoreEntitySet="UserTables">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="user_name" ColumnName="user_name" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

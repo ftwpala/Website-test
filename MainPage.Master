@@ -1,0 +1,45 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MainPage.master.cs" Inherits="WebsiteTest.MainPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head runat="server">
+    <link rel="stylesheet" type="text/css" href="Design.css" />
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <header>
+                <img src="Graphic/Header.png" alt="header" />
+            </header>
+           
+                <asp:ContentPlaceHolder ID="NavigationBar" runat="server">
+                    <asp:Menu ID="Menu1" runat="server" CssClass="menu" Orientation="Horizontal">
+                        <Items>
+                            <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home" Value="Home"></asp:MenuItem>
+                            <asp:MenuItem Text="Movies" Value="Home">
+                                <asp:MenuItem NavigateUrl="~/Premiers.aspx" Text="Premiers" Value="Premiers"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/AllMovies.aspx" Text="All Movies" Value="AllMovies"></asp:MenuItem>
+                            </asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/About.aspx" Text="About" Value="About"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/Login.aspx" Text="Login" Value="Login"></asp:MenuItem>
+                        </Items>
+                    </asp:Menu>
+                </asp:ContentPlaceHolder>
+           
+            <asp:ContentPlaceHolder ID="WelcomePage" runat="server">
+            </asp:ContentPlaceHolder>
+            <asp:ContentPlaceHolder ID="LoginBar" runat="server">
+            </asp:ContentPlaceHolder>
+
+            <footer>
+                <img src="Graphic/Footer.png" alt="footer" />
+            </footer>
+
+        </div>
+    </form>
+</body>
+</html>
